@@ -39,7 +39,7 @@ function generate_output_command() {
     final_command += always_active + ",Command:\"";
 
     // get command
-    let command = data.get('command').trim().replaceAll('"', '\\"');
+    let command = data.get('command').trim().replaceAll("\\", "\\\\").replaceAll('"', '\\"').replaceAll("'", "\\'");
 
     final_command += command + "\"},Passengers:[{id:armor_stand,Health:0,Passengers:[{id:falling_block,BlockState:{id:";
 
