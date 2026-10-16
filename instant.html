@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>OCC GEN (Java 26.3)</title>
+</head>
+<body>
+    <header>
+        <h1>Java 26.3 Fast Command Assembler</h1>
+        <nav>
+            <a href="index.html">Slow Assemble</a>
+            <a href="instant.html">Fast Assemble</a>
+        </nav>
+    </header>
+    <main>
+        <div id="input">
+            <h1>Input</h1>
+            
+            <form id="form" method="POST">
+
+                <div id="position_container">
+                    <label for="position">Command block position:</label>
+                    <input type="text" id="position" name="position" placeholder="eg. ~ ~3 ~ (origin is 2 blocks higher)">
+                </div>
+
+                <p>Command Block Options:</p>
+                <div id="radio_3" class="radio_button">
+                    <input type="radio" id="impulse" name="command_type" value="" checked>
+                    <label for="impulse" class="orange">Impulse</label>
+                    <input type="radio" id="chain" name="command_type" value="chain_">
+                    <label for="chain" class="green">Chain</label>
+                    <input type="radio" id="repeating" name="command_type" value="repeating_">
+                    <label for="repeating" id="repeating_label">Repeat</label>
+                </div>
+                
+
+                <br>
+                <div class="radio_button">
+                    <input type="radio" id="unconditional" name="conditional" value="false" checked>
+                    <label for="unconditional" class="green">Unconditional</label>
+                    <input type="radio" id="conditional" name="conditional" value="true">
+                    <label for="conditional" class="orange">Conditional</label>
+                </div>
+                
+
+                <br>
+                <div class="radio_button">
+                    <input type="radio" id="needs_redstone" name="always_active" value="0" checked>
+                    <label for="needs_redstone" class="orange">Needs Redstone</label>
+                    <input type="radio" id="always_active" name="always_active" value="1">
+                    <label for="always_active" class="green">Always Active</label>
+                </div>
+                
+
+                <br>
+                <label for="direction">Command Block Facing Direction:</label>
+
+                <select name="direction" id="direction">
+                    <option value="north">North</option>
+                    <option value="east">East</option>
+                    <option value="south">South</option>
+                    <option value="west">West</option>
+                    <option value="up" selected>Up</option>
+                    <option value="down">Down</option>
+                </select>
+
+                <br>
+                <label for="command">Command:</label>
+                <br>
+                <textarea id="command" name="command" rows="5" cols="10" placeholder="Enter Minecraft Command..."></textarea>
+
+                <br><br>
+                <button type="button" onclick="add_command_block()">Add Another Command Block</button>
+            </form>
+        </div>
+        <div id="output">
+            <h1>Output</h1>
+            <textarea id="output_text" name="output_text" rows="5" cols="10" placeholder="Output Generates Here..."></textarea>
+        </div>
+    </main>
+    <script src="instant_script.js"></script>
+</body>
+</html>

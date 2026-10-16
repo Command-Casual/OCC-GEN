@@ -1,14 +1,59 @@
-:root {
-  font-family: 'Inter', sans-serif;
+@font-face {
+    font-family: 'MinecraftFont';
+    src: url('assets/fonts/Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: 'InterVariable', sans-serif;
-  }
+
+:root {
+    font-family: 'MinecraftFont', monospace;
+    color: #ffffff;
+    text-shadow: 3px 3px 0px #3f3f3f;
+    font-size: x-large;
+    letter-spacing: 2px;
 }
 
 body {
-    background-color: #3a4166;
+    background-color: #323B4A;
+    color: #757575;
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    background-color: #1F1F1F;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    background-color: #1F1F1F;
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+
+a {
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+    border: 3px solid black;
+    background-color: #757575;
+}
+
+a:hover {
+    border: 3px solid white;
+}
+
+main {
     grid-template-columns: 1fr 1fr;
     display: grid;
     margin: 0;
@@ -17,9 +62,7 @@ body {
 }
 
 div:not(.radio_button) {
-    background-color: #282f75;
-    border: 5px solid #dee1ff;
-    border-radius: 15px;
+    background-color: #1F1F1F;
     margin: 25px;
     padding: 25px;
     text-align: center;
@@ -29,21 +72,16 @@ div:not(.radio_button) {
 }
 
 div h1 {
-    font-size: 40px;
-    color: #dee1ff;
+    color: white;
     padding: 0px;
     margin: 0px;
     margin-bottom: 25px;
 }
 
-#output_text, div form, #position_container {
-    background-color: #3a4166;
-    border: 5px solid #dee1ff;
+div form, #position_container {
     min-height: max-content;
-    border-radius: 15px;
-    color: #dee1ff;
+    color: white;
     padding: 10px;
-    font-size: 20px;
     flex: 1;
 }
 
@@ -53,59 +91,68 @@ div h1 {
     margin-bottom: 10px;
 }
 
+hr {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: none;
+}
+
+.radio_button {
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+#radio_3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 input[type="radio"] {
     display: none;
 }
 
-input[type="radio"] + label {
-    border-radius: 10px;
-    padding: 3px;
-    border: 5px solid transparent;
-}
-
-input[type="radio"]:checked + label {
-    border: 5px solid #3a4166;
-    background-clip: padding-box;
-}
-
-input[type="text"], textarea, select, button {
-    background-color: #282f75;
+input[type="radio"] + label, button {
+    padding: 10px;
+    border: 3px solid black;
+    background-color: #757575;
+    color: white;
+    font-family: MinecraftFont;
     font-size: x-large;
-    border: 3px solid #dee1ff;
-    border-radius: 5px;
-    color: #dee1ff;
+}
+
+input[type="radio"]:checked + label, input[type="radio"]:hover + label, button:hover {
+    border: 3px solid #3a4166;
+    background-clip: padding-box;
+    border: 3px solid white;
+}
+
+input[type="text"], textarea, select {
+    font-family: MinecraftFont;
+    background-color: black;
+    color: white;
+    resize: none;
+    border: 3px solid #757575;
+    padding: 5px;
+    font-size: x-large;
+    text-shadow: 3px 3px 0px #2A2A2A;
+    letter-spacing: 2px;
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border: 3px solid white;
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+    color: #808080;
+    opacity: 0.5;
+    font-family: MinecraftFont;
 }
 
 p {
     overflow-wrap: break-word;
-}
-
-.orange {
-    background-color: #f2b477;
-    color: #282f75;
-    font-weight: bold;
-}
-
-.green {
-    background-color: #77f2b9;
-    color: #282f75;
-    font-weight: bold;
-}
-
-#repeating_label {
-    background-color: #a477f2;
-    color: #282f75;
-    font-weight: bold;
-}
-
-button, .orange, .green, #repeating_label {
-    display: inline-block;
-    transition: transform 0.2s ease;
-    transform-origin: center;
-}
-
-button:hover, .orange:hover, .green:hover, #repeating_label:hover {
-    transform: scale(1.05);
 }
 
 form {
@@ -118,7 +165,7 @@ textarea {
 }
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
-    body {
+    main {
         grid-template-columns: 1fr;
     }
 }
