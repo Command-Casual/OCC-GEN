@@ -51,7 +51,7 @@ function generate_output_command() {
 
     {id:command_block_minecart,Command:"/setblock ~ ~-1 ~ command_block{auto:1,Command:\"/fill ~ ~-1 ~ ~ ~1 ~ air\"}"},{id:command_block_minecart,Command:"/kill @e[type=command_block_minecart]"}]}]}
     */
-    output.textContent = "/summon minecraft:falling_block ~ ~1 ~ {BlockState:{id:\"minecraft:redstone_block\"},Passengers:[{id:\"minecraft:falling_block\",BlockState:{id:\"minecraft:activator_rail\"},Passengers:[" + final_command + "{id:command_block_minecart,Command:\"/setblock ~ ~-2 ~ command_block{auto:1,Command:\\\"/fill ~ ~-1 ~ ~ ~1 ~ air\\\"}\"},{id:command_block_minecart,Command:\"/kill @e[type=command_block_minecart]\"}]}]}"
+    output.textContent = "/summon minecraft:falling_block ~ ~1 ~ {BlockState:{id:\"minecraft:redstone_block\"},Passengers:[{id:\"minecraft:falling_block\",BlockState:{id:\"minecraft:activator_rail\"},Passengers:[" + final_command + "{id:command_block_minecart,Command:\"/setblock ~ ~-1 ~ command_block{auto:1,Command:\\\"/fill ~ ~-1 ~ ~ ~1 ~ air\\\"}\"},{id:command_block_minecart,Command:\"/kill @e[type=command_block_minecart]\"}]}]}"
 }
 
 function add_command_block() {
