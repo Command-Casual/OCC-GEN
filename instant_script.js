@@ -10,7 +10,7 @@ form.addEventListener('input', () => {
 function generate_output_command() {
     const data = new FormData(form);
 
-    let current_final_command = start_string + "{id:command_block_minecart,Command:\"/setblock ";
+    let current_final_command = "{id:command_block_minecart,Command:\"/setblock ";
 
     // get position
     let command_position = data.get('position').trim().toLowerCase();
@@ -32,7 +32,7 @@ function generate_output_command() {
 
     current_final_command += command_position + " " + command_type + "command_block[conditional=" + conditional + ",facing=" + direction + "]{auto:" + always_active + ",Command:\\\"" + command + "\\\"}\"},";
 
-    final_command = current_final_command;
+    final_command = start_string + current_final_command;
 
     /* 
     /summon minecraft:falling_block ~ ~1 ~ {BlockState:{id:"minecraft:redstone_block"},Passengers:[{id:"minecraft:falling_block",BlockState:{id:"minecraft:activator_rail"},Passengers:[
@@ -55,6 +55,6 @@ function generate_output_command() {
 }
 
 function add_command_block() {
-    start_string += final_command;
+    start_string = final_command;
     form.reset()
 }
